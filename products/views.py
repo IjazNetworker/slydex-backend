@@ -19,8 +19,8 @@ def get_products(request):
             "id": product.id,
             "name": product.name,
             "brand": product.brand,
-            "sales_price": product.Sales_price,
-            "cost_price": product.Cost_price,
+            "sales_price": product.sales_price,
+            "cost_price": product.cost_price,
             "image": product.image.url,
             "stock": product.stock,
             "whatsapp_number": product.whatsapp_number
