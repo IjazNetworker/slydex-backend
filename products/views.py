@@ -21,7 +21,7 @@ def get_products(request):
             "brand": product.brand,
             "sales_price": product.sales_price,
             "cost_price": product.cost_price,
-            "image": product.image.url,
+             "image": request.build_absolute_uri(product.image.url) if product.image else None,
             "stock": product.stock,
             "whatsapp_number": product.whatsapp_number
         })
