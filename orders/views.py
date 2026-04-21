@@ -13,7 +13,6 @@ def create_order(request):
     return Response(serializer.errors, status=400)
 
 
-# ✅ Get Orders (with filter)
 @api_view(['GET'])
 def get_orders(request):
     status_param = request.GET.get('status')
@@ -23,7 +22,11 @@ def get_orders(request):
     else:
         orders = Order.objects.all()
 
-    serializer = OrderSerializer(orders, many=True)
+    serializer = OrderSerializer(
+        orders,
+        many=True,
+        context={'request': request}   # 🔥 FIX
+    )
     return Response(serializer.data)
 
 
